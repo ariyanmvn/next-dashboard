@@ -21,8 +21,8 @@ export default function Navbar() {
             <h1 className="text-xl font-semibold">FinLab</h1>
           </div>
           <div className="links">
-          <ul className="flex gap-6">
-            <li>Dashboard</li>
+          <ul className="flex items-center gap-[10px] text-[#A2A6AA] font-light">
+            <li className="bg-[#FFFFFF1A] text-white py-3 px-5 rounded-[14px]">Dashboard</li>
             <li>Wallets</li>
             <li>Settings</li>
             <li>Help & Center</li>

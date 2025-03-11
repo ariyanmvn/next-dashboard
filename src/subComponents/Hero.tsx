@@ -5,7 +5,7 @@ import HeroTabs from './HeroTabs'
 
 export default function Hero() {
   return (
-    <div className='hero bg-[#1C2634] w-full h-[320px]'>
+    <div className='hero bg-[#1C2634] w-full h-[320px] lg:h-[340px]'>
         <Navbar></Navbar>
         <HeroText></HeroText>
         <HeroTabs></HeroTabs>
