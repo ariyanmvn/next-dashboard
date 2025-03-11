@@ -1,16 +1,30 @@
 import HamburgerIcon from '@/icons/HamburgerIcon'
+import NotificationIcon from '@/icons/NotificationIcon'
+import SearchIcon from '@/icons/SearchIcon'
 import React from 'react'
 
 export default function Navbar() {
   return (
-    <nav className="flex items-center justify-between px-4 py-3  text-white">
+    <nav className="  text-white">
       <div className="logo hidden lg:block">
         <h1 className="text-xl font-bold">MyLogo</h1>
-      </div>
-      
-      <div className="nav">
-        <div className="ham bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px] lg:hidden">
+      </div> 
+
+      <div className="nav flex justify-between p-[25px]">
+        <div className="ham bg-[#FFFFFF12] flex items-center cursor-pointer justify-center rounded-full w-[42px] h-[42px] lg:hidden">
           <HamburgerIcon />
+        </div>
+
+        <div className="icons flex gap-[12px] cursor-pointer lg:hidden">
+        <div className="search bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px] lg:hidden">
+            <SearchIcon></SearchIcon>
+        </div>
+        <div className="notification cursor-pointer bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px] lg:hidden">
+            <NotificationIcon></NotificationIcon>
+        </div>
+        <div className="profile cursor-pointer bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px] lg:hidden">
+            <img src="/profile.png" alt="" />
+        </div>
         </div>
       </div>
     </nav>
