@@ -8,7 +8,7 @@ import React from "react";
 export default function Navbar() {
   return (
     <nav className="text-white">
-      <div className="deks-nav hidden lg:flex justify-between p-[25px]">
+      <div className="deks-nav hidden lg:flex justify-between px-[25px] py-[15px]">
         <div className="flex items-center gap-[64px]">
           <div className="logo flex items-center gap-[12px]">
             <Image

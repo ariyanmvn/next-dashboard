@@ -3,8 +3,8 @@ import React from "react";
 
 export default function HeroText() {
   return (
-    <div className="texts flex justify-start items-start py-[25px] pl-[25px] flex-col gap-[12px]">
-      <h1 className=" font-semibold text-[#FFFFFF] text-[20px]">
+    <div className="texts flex justify-start items-start py-[25px] lg:py-[0px] pl-[25px] flex-col gap-[12px]">
+      <h1 className=" font-semibold text-[#FFFFFF] text-[20px] lg:text-[24]">
         Welcome back, Rainer Yaeger 👏🏻
       </h1>
       <div className="buttons text-[12px] flex items-center gap-[12px]">
