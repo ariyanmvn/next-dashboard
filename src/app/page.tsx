@@ -1,9 +1,14 @@
+import Hero from "@/subComponents/Hero";
 
 export default function Home() {
   return (
     <div>
 
-    <h1>hello world!</h1>
+   <main>
+    <header>
+    <Hero></Hero>
+    </header>
+   </main>
 
     </div>
   );
