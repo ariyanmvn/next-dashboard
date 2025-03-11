@@ -1,16 +1,50 @@
-import HamburgerIcon from '@/icons/HamburgerIcon'
-import NotificationIcon from '@/icons/NotificationIcon'
-import SearchIcon from '@/icons/SearchIcon'
-import Image from 'next/image'
-import React from 'react'
+import { Input } from "@/components/ui/input";
+import HamburgerIcon from "@/icons/HamburgerIcon";
+import NotificationIcon from "@/icons/NotificationIcon";
+import SearchIcon from "@/icons/SearchIcon";
+import Image from "next/image";
+import React from "react";
 
 export default function Navbar() {
   return (
-    <nav className="  text-white">
-      <div className="logo hidden lg:flex items-centerj gap-3">
-        <Image src={"/logo.png"} alt='logo' className='object-cover' width={38} height={38}></Image>
-        <h1 className="text-xl font-semibold">FinLab</h1>
-      </div> 
+    <nav className="text-white">
+      <div className="deks-nav hidden lg:flex justify-between p-[25px]">
+        <div className="flex items-center gap-[64px]">
+          <div className="logo flex items-center gap-[12px]">
+            <Image
+              src={"/logo.png"}
+              alt="FinLab logo"
+              className="object-cover"
+              width={38}
+              height={38}
+            />
+            <h1 className="text-xl font-semibold">FinLab</h1>
+          </div>
+          <div className="links">
+          <ul className="flex gap-6">
+            <li>Dashboard</li>
+            <li>Wallets</li>
+            <li>Settings</li>
+            <li>Help & Center</li>
+          </ul>
+        </div>
+
+        </div>
+        
+        <div className="icons flex gap-[14px] items-center">
+          <div className="flex items-center cursor-pointer  bg-[#FFFFFF12] rounded-[100px] py-2 px-5">
+            <SearchIcon></SearchIcon>
+            <Input className="border-none" placeholder="search anything here"></Input>
+
+          </div>
+          <div className="notification bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px]">
+            <NotificationIcon />
+          </div>
+          <div className="profile bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px]">
+            <img src="/profile.png" alt="User profile" />
+          </div>
+        </div>
+      </div>
 
       <div className="nav flex justify-between p-[25px]">
         <div className="ham bg-[#FFFFFF12] flex items-center cursor-pointer justify-center rounded-full w-[42px] h-[42px] lg:hidden">
@@ -18,17 +52,17 @@ export default function Navbar() {
         </div>
 
         <div className="icons flex gap-[12px] cursor-pointer lg:hidden">
-        <div className="search bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px] lg:hidden">
-            <SearchIcon></SearchIcon>
-        </div>
-        <div className="notification cursor-pointer bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px] lg:hidden">
-            <NotificationIcon></NotificationIcon>
-        </div>
-        <div className="profile cursor-pointer bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px] lg:hidden">
-            <img src="/profile.png" alt="" />
-        </div>
+          <div className="search bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px]">
+            <SearchIcon />
+          </div>
+          <div className="notification bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px]">
+            <NotificationIcon />
+          </div>
+          <div className="profile bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px]">
+            <img src="/profile.png" alt="User profile" />
+          </div>
         </div>
       </div>
     </nav>
-  )
+  );
 }
