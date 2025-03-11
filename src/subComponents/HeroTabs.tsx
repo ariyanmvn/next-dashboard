@@ -5,7 +5,7 @@ export default function HeroTabs() {
       <div className='w-[90%] mx-auto text-[#A2A6AA] '>
         <Tabs defaultValue="tab1" className="w-full">
           <TabsList className="flex space-x-2 ">
-            <TabsTrigger value="tab1">OverView</TabsTrigger>
+            <TabsTrigger value="tab1">Overview</TabsTrigger>
             <TabsTrigger value="tab2">Transaction</TabsTrigger>
             <TabsTrigger className="hidden lg:block" value="tab2">Statistics</TabsTrigger>
           </TabsList>
