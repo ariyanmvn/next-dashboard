@@ -1,13 +1,15 @@
 import HamburgerIcon from '@/icons/HamburgerIcon'
 import NotificationIcon from '@/icons/NotificationIcon'
 import SearchIcon from '@/icons/SearchIcon'
+import Image from 'next/image'
 import React from 'react'
 
 export default function Navbar() {
   return (
     <nav className="  text-white">
-      <div className="logo hidden lg:block">
-        <h1 className="text-xl font-bold">MyLogo</h1>
+      <div className="logo hidden lg:flex items-centerj gap-3">
+        <Image src={"/logo.png"} alt='logo' className='object-cover' width={38} height={38}></Image>
+        <h1 className="text-xl font-semibold">FinLab</h1>
       </div> 
 
       <div className="nav flex justify-between p-[25px]">
