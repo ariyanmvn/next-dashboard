@@ -254,7 +254,7 @@ export const columns: ColumnDef<Payment>[] = [
   {
     accessorKey: "action",
     header: "Action",
-    cell: ({ row }) => (
+    cell: () => (
       <div className="flex justify-center items-cente gap-3 ">
         <button className="cursor-pointer">
           <ViewIcon></ViewIcon>
