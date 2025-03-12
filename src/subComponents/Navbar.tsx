@@ -37,10 +37,10 @@ export default function Navbar() {
             <Input className="border-none" placeholder="search anything here"></Input>
 
           </div>
-          <div className="notification bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px]">
+          <div className="notification cursor-pointer bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px]">
             <NotificationIcon />
           </div>
-          <div className="profile bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px]">
+          <div className="profile cursor-pointer bg-[#FFFFFF12] flex items-center justify-center rounded-full w-[42px] h-[42px]">
             <img src="/profile.png" alt="User profile" />
           </div>
         </div>
