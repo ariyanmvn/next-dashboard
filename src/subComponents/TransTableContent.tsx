@@ -53,42 +53,119 @@ import {
 
 // Mock data
 const data: Payment[] = [
-  {
-    id: "m5gr84i9",
-    amount: 316,
-    status: "success",
-    email: "ken99@example.com",
-  },
-  {
-    id: "3u1reuv4",
-    amount: 242,
-    status: "success",
-    email: "Abe45@example.com",
-  },
-  {
-    id: "derv1ws0",
-    amount: 837,
-    status: "processing",
-    email: "Monserrat44@example.com",
-  },
-  {
-    id: "5kma53ae",
-    amount: 874,
-    status: "success",
-    email: "Silas22@example.com",
-  },
-  {
-    id: "bhqecj4p",
-    amount: 721,
-    status: "failed",
-    email: "carmella@example.com",
-  },
-];
+    {
+      id: "B12341",
+      amount: 150,
+      status: "success",
+      email: "figma@example.com",
+      invoice: "B12341",
+      name: "Figma",
+      type: "software",
+      marketplace: "subscription",
+      transactionType: "subscribe",
+      date: "2025-03-12",
+      time: "10:30 AM",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7d/Figma-logo.svg/1024px-Figma-logo.svg.png"
+    },
+    {
+      id: "B12342",
+      amount: 200,
+      status: "pending",
+      email: "adobe@example.com",
+      invoice: "B12342",
+      name: "Adobe",
+      type: "software",
+      marketplace: "creative cloud",
+      transactionType: "subscribe",
+      date: "2025-03-12",
+      time: "11:00 AM",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Adobe_Corporate_Logo.svg/1024px-Adobe_Corporate_Logo.svg.png"
+    },
+    {
+      id: "B12343",
+      amount: 120,
+      status: "cancelled",
+      email: "fiverr@example.com",
+      invoice: "B12343",
+      name: "Fiverr",
+      type: "services",
+      marketplace: "freelance",
+      transactionType: "transfer",
+      date: "2025-03-12",
+      time: "12:30 PM",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a5/Fiverr_logo.svg/1024px-Fiverr_logo.svg.png"
+    },
+    {
+      id: "B12344",
+      amount: 90,
+      status: "success",
+      email: "starbucks@example.com",
+      invoice: "B12344",
+      name: "Starbucks",
+      type: "food",
+      marketplace: "coffee shop",
+      transactionType: "purchase",
+      date: "2025-03-12",
+      time: "1:00 PM",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Starbucks_Logo_2011.svg/1024px-Starbucks_Logo_2011.svg.png"
+    },
+    {
+      id: "B12345",
+      amount: 50,
+      status: "pending",
+      email: "kfc@example.com",
+      invoice: "B12345",
+      name: "KFC",
+      type: "food",
+      marketplace: "fast food",
+      transactionType: "purchase",
+      date: "2025-03-12",
+      time: "2:30 PM",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/44/KFC_logo.svg/1024px-KFC_logo.svg.png"
+    },
+    {
+      id: "B12346",
+      amount: 275,
+      status: "success",
+      email: "shopify@example.com",
+      invoice: "B12346",
+      name: "Shopify",
+      type: "software",
+      marketplace: "e-commerce",
+      transactionType: "subscribe",
+      date: "2025-03-12",
+      time: "3:00 PM",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1e/Shopify_logo_2022.svg/1024px-Shopify_logo_2022.svg.png"
+    },
+    {
+      id: "B12347",
+      amount: 450,
+      status: "cancelled",
+      email: "paris_shop@example.com",
+      invoice: "B12347",
+      name: "Paris Shop",
+      type: "retail",
+      marketplace: "shopping mall",
+      transactionType: "purchase",
+      date: "2025-03-12",
+      time: "4:00 PM",
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Paris_logo.svg/1024px-Paris_logo.svg.png"
+    }
+  ];
+  
 
 export type Payment = {
   id: string;
   amount: number;
-  status: "pending" | "processing" | "success" | "failed";
+  invoice:string;
+  name:string;
+  type:string;
+  marketplace:string;
+  transactionType:string;
+  date:string;
+  time:string;
+  logo:string;
+  status: string;
   email: string;
 };
 
@@ -117,40 +194,65 @@ export const columns: ColumnDef<Payment>[] = [
     enableHiding: false,
   },
   {
+    accessorKey: "invoice",
+    header: "Invoice",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("invoice")}</div>
+    ),
+  },
+  {
+    accessorKey: "name",
+    header: "Name/Business",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("name")}</div>
+    ),
+  },
+  {
+    accessorKey: "transactionType",
+    header: "Transaction Type",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("transactionType")}</div>
+    ),
+    
+  },
+  {
+    accessorKey: "date",
+    header: "Date&Time",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("transactionType")}</div>
+    ),
+    
+  },
+  {
+    accessorKey: "amount",
+    header: "Amount",
+    cell: ({ row }) => (
+      <div className="capitalize">{row.getValue("amount")}</div>
+    ),
+    
+  },
+  {
     accessorKey: "status",
     header: "Status",
     cell: ({ row }) => (
       <div className="capitalize">{row.getValue("status")}</div>
     ),
+    
   },
-  {
-    accessorKey: "email",
-    header: ({ column }) => (
-      <Button
-        variant="ghost"
-        onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-      >
-        Email
-        <ArrowUpDown />
-      </Button>
-    ),
-    cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
-  },
-  {
-    accessorKey: "amount",
-    header: () => <div className="text-right">Amount</div>,
-    cell: ({ row }) => {
-      const amount = parseFloat(row.getValue("amount"));
-
-      // Format the amount as a dollar amount
-      const formatted = new Intl.NumberFormat("en-US", {
-        style: "currency",
-        currency: "USD",
-      }).format(amount);
-
-      return <div className="text-right font-medium">{formatted}</div>;
-    },
-  },
+//   {
+//     accessorKey: "email=",
+//     header: ({ column }) => (
+//       <Button
+//         variant="ghost"
+//         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+//       >
+//         Email
+//         <ArrowUpDown />
+//       </Button>
+//     ),
+//     cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
+//   },
+  
   {
     id: "actions",
     enableHiding: false,
