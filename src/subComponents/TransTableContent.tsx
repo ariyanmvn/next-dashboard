@@ -197,21 +197,21 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "invoice",
     header: "Invoice",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("invoice")}</div>
+      <div className="capitalize text-black">{row.getValue("invoice")}</div>
     ),
   },
   {
     accessorKey: "name",
     header: "Name/Business",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("name")}</div>
+      <div className="capitalize text-black">{row.getValue("name")}</div>
     ),
   },
   {
     accessorKey: "transactionType",
     header: "Transaction Type",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("transactionType")}</div>
+      <div className="capitalize text-[#6C7278] rounded-sm w-[96px] h-[33px] flex justify-center items-center font-semibold bg-[#EDF1F3]">{row.getValue("transactionType")}</div>
     ),
     
   },
@@ -219,7 +219,7 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "date",
     header: "Date&Time",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("transactionType")}</div>
+      <div className="capitalize text-black">{row.getValue("date")}</div>
     ),
     
   },
@@ -227,7 +227,7 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "amount",
     header: "Amount",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("amount")}</div>
+      <div className="capitalize text-black">${row.getValue("amount")}</div>
     ),
     
   },
@@ -235,7 +235,7 @@ export const columns: ColumnDef<Payment>[] = [
     accessorKey: "status",
     header: "Status",
     cell: ({ row }) => (
-      <div className="capitalize">{row.getValue("status")}</div>
+      <div className={`capitalize  ${row.getValue("status")=="success" &&"bg-[#ECF8F0CC] text-[#1C8C6E] w-[96px] h-[33px] flex justify-center items-center font-semibold"} ${row.getValue("status")=="pending" &&"bg-[#FBF4E4] text-[#DBAA00] w-[96px] h-[33px] flex justify-center items-center font-semibold"}  ${row.getValue("status")=="cancelled" &&"bg-[#F2E7E7] text-[#BE3F4A] w-[96px] h-[33px] flex justify-center items-center font-semibold"}`}>{row.getValue("status")}</div>
     ),
     
   },
