@@ -42,6 +42,14 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 // Mock data
 const data: Payment[] = [
@@ -256,12 +264,10 @@ export function DataTableDemo() {
           </TableBody>
         </Table>
       </div>
-      <div className="flex items-center justify-end space-x-2 py-4">
-        <div className="flex-1 text-sm text-muted-foreground">
-          {table.getFilteredSelectedRowModel().rows.length} of{" "}
-          {table.getFilteredRowModel().rows.length} row(s) selected.
-        </div>
-        <div className="space-x-2">
+
+      <div className="flex flex-col lg:flex-row space-y-5 justify-between items-center mt-5">
+      <div className="flex items-center">
+        <div className="space-x-2 text-black ">
           <Pagination>
             <PaginationContent>
               <PaginationItem>
@@ -320,6 +326,25 @@ export function DataTableDemo() {
             </PaginationContent>
           </Pagination>
         </div>
+      </div>
+
+      <div className="flex  items-center  ">
+        <div className="text-[#1A1C1E] flex gap-4 items-center">
+          <p className="text-[#1A1C1E]">showing 6 of 50 entries</p>
+          <Select>
+            <SelectTrigger >
+              <SelectValue placeholder="Rows per page" />
+            </SelectTrigger>
+            <SelectContent >
+              <SelectGroup>
+                <SelectItem value="10">Show 10</SelectItem>
+                <SelectItem value="20">Show 20</SelectItem>
+                <SelectItem value="30">Show 30</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+      </div>
       </div>
     </div>
   );
