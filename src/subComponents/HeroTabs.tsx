@@ -13,18 +13,23 @@ export default function HeroTabs() {
             Statistics
           </TabsTrigger>
         </TabsList>
+
         <TabsContent value="tab1">
           <p>Content for Tab 1</p>
         </TabsContent>
-        <TabsContent value="tab2">
-          <div>
-            <TransTable></TransTable>
+        <TabsContent className="w-full" value="tab2">
+          
+          <div >
+          <TransTable></TransTable>
           </div>
+          
         </TabsContent>
         <TabsContent value="tab3">
           <p>Content for Tab 3</p>
         </TabsContent>
       </Tabs>
+
+
       <div className="calendar h-[42] lg:hidden  w-[42] bg-[#FFFFFF12] rounded-full p-2">
         <CalendarIcon></CalendarIcon>
         
