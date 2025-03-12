@@ -1,10 +1,11 @@
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import CalendarIcon from "@/icons/CalendarIcon";
+import TransTable from "./TransTable";
 
 export default function HeroTabs() {
   return (
     <div className=" flex justify-between items-center p-[25px] text-[#A2A6AA]  ">
-      <Tabs defaultValue="tab1" className="w-full">
+      <Tabs defaultValue="tab2" className="w-full">
         <TabsList className="flex space-x-2 ">
           <TabsTrigger value="tab1">Overview</TabsTrigger>
           <TabsTrigger value="tab2">Transaction</TabsTrigger>
@@ -16,7 +17,9 @@ export default function HeroTabs() {
           <p>Content for Tab 1</p>
         </TabsContent>
         <TabsContent value="tab2">
-          <p>Content for Tab 2</p>
+          <div>
+            <TransTable></TransTable>
+          </div>
         </TabsContent>
         <TabsContent value="tab3">
           <p>Content for Tab 3</p>
