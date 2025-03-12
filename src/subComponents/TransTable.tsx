@@ -29,11 +29,11 @@ export default function TransTable() {
       {/* for dekstop */}
 
       <div className="dekstop-icons hidden lg:flex justify-between items-center">
-        <div className="flex w-[250px] justify-center px-2 border-gray-300 border-1 items-center cursor-pointer text-black rounded-[100px] ">
+        <div className="flex w-[300px] justify-center px-2 border-gray-300 border-1 items-center cursor-pointer text-black rounded-[100px] ">
           <SearchBlackIcon></SearchBlackIcon>
           <Input
             className="border-none shadow-none"
-            placeholder="search anything here"
+            placeholder="search for the transactions here"
           />
         </div>
 
