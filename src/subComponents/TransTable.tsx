@@ -1,12 +1,25 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 
 import { Input } from "@/components/ui/input";
 import SearchBlackIcon from "@/icons/SearchBlackIcon";
 import FilterIcon from "@/icons/FilterIcon";
 import ExportIcon from "@/icons/ExportIcon";
 import { DataTableDemo } from "./TransTableContent";
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 
 export default function TransTable() {
+  const [filter, setFilter] = useState(false);
+
+  console.log("filter", filter);
+
   return (
     <div className="bg-[#FFFFFF] p-[24px] rounded-[16px] mt-2 xl:mt-5 w-[100%] xl-w-full h-[900px] mx-auto  lg:h-[805px]">
       {/* for mobile */}
@@ -17,9 +30,12 @@ export default function TransTable() {
         </div>
 
         <div className="flex gap-[10px]">
-          <div className="filter border-1 border-gray-300 flex items-center cursor-pointer justify-center rounded-full w-[42px] h-[42px] lg:hidden">
+          <button
+            onClick={() => setFilter(!filter)}
+            className="filter border-1 border-gray-300 flex items-center cursor-pointer justify-center rounded-full w-[42px] h-[42px] lg:hidden"
+          >
             <FilterIcon></FilterIcon>
-          </div>
+          </button>
           <div className="export border-1 border-gray-300 flex items-center cursor-pointer justify-center rounded-full w-[42px] h-[42px] lg:hidden">
             <ExportIcon></ExportIcon>
           </div>
@@ -37,15 +53,75 @@ export default function TransTable() {
           />
         </div>
 
-        <div className="flex gap-[10px]">
-          <div className="filter border-1  border-gray-300 flex items-center gap-3 cursor-pointer justify-center rounded-[100px]  w-[115px] h-[48px] ">
+        <div onClick={() => setFilter(!filter)} className="flex gap-[10px]">
+          <button className="filter border-1  border-gray-300 flex items-center gap-3 cursor-pointer justify-center rounded-[100px]  w-[115px] h-[48px] ">
             <FilterIcon></FilterIcon>
             <p className="text-black">Filter</p>
-          </div>
+          </button>
           <div className="export border-1 border-gray-300 flex items-center gap-3 cursor-pointer justify-center rounded-[100px] w-[115px] h-[48px] ">
             <ExportIcon></ExportIcon>
             <p className="text-black">Export</p>
           </div>
+        </div>
+      </div>
+
+      {/* filter*/}
+      <div className={`filter-icons  ${filter==false&&`hidden`}  flex justify-between items-center gap-5 w-[300px] lg:w-[1150px] my-5 mx-auto overflow-x-auto  `}>
+        <div>
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder="Rows per page" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="10">Show 10</SelectItem>
+                <SelectItem value="20">Show 20</SelectItem>
+                <SelectItem value="30">Show 30</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder="Rows per page" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="10">Show 10</SelectItem>
+                <SelectItem value="20">Show 20</SelectItem>
+                <SelectItem value="30">Show 30</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder="Rows per page" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="10">Show 10</SelectItem>
+                <SelectItem value="20">Show 20</SelectItem>
+                <SelectItem value="30">Show 30</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
+        </div>
+        <div>
+          <Select>
+            <SelectTrigger>
+              <SelectValue placeholder="Rows per page" />
+            </SelectTrigger>
+            <SelectContent>
+              <SelectGroup>
+                <SelectItem value="10">Show 10</SelectItem>
+                <SelectItem value="20">Show 20</SelectItem>
+                <SelectItem value="30">Show 30</SelectItem>
+              </SelectGroup>
+            </SelectContent>
+          </Select>
         </div>
       </div>
 
