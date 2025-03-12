@@ -17,25 +17,22 @@ export default function HeroTabs() {
         <TabsContent value="tab1">
           <p>Content for Tab 1</p>
         </TabsContent>
-        <TabsContent className="w-full" value="tab2">
-          
-          <div >
-          <TransTable></TransTable>
+        <TabsContent className="w-full max-w-[1320px] mx-auto" value="tab2">
+          <div className="w-full mx-auto">
+            <TransTable />
           </div>
-          
         </TabsContent>
+
         <TabsContent value="tab3">
           <p>Content for Tab 3</p>
         </TabsContent>
       </Tabs>
 
-
-      <div className="calendar h-[42] lg:hidden  w-[42] bg-[#FFFFFF12] rounded-full p-2">
+      {/* <div className="calendar h-[42] lg:hidden  w-[42] bg-[#FFFFFF12] rounded-full p-2">
         <CalendarIcon></CalendarIcon>
-        
-      </div>
+      </div> */}
 
-      <div className="calendar hidden lg:flex gap-3 justify-center items-center w-[157px] h-[48px] bg-[#FFFFFF12] rounded-[100px] ">
+      {/* <div className="calendar hidden lg:flex gap-3 justify-center items-center w-[157px] h-[48px] bg-[#FFFFFF12] rounded-[100px] ">
         <CalendarIcon></CalendarIcon>
         <p className="hidden lg:block text-[14px]">
           {new Date().toLocaleDateString("en-US", {
@@ -44,7 +41,7 @@ export default function HeroTabs() {
             year: "numeric",
           })}
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
