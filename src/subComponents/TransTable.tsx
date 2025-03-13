@@ -23,12 +23,13 @@ import {
   DialogHeader,
   DialogTitle,
   DialogTrigger,
-} from "@/components/ui/dialog"
+} from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
 export default function TransTable() {
   const [filter, setFilter] = useState(false);
-  const[isDialogOpen,setIsDialogOpen]=useState(false);
+  const [isDialogOpen, setIsDialogOpen] = useState(false);
+  const [isExportSuccessful, setIsExportSuccessful] = useState(false);
 
   console.log("filter", filter);
 
@@ -48,7 +49,10 @@ export default function TransTable() {
           >
             <FilterIcon></FilterIcon>
           </button>
-          <div onClick={()=>setIsDialogOpen(true)} className="export border-1 border-gray-300 flex items-center cursor-pointer justify-center rounded-full w-[42px] h-[42px] lg:hidden">
+          <div
+            onClick={() => setIsDialogOpen(true)}
+            className="export border-1 border-gray-300 flex items-center cursor-pointer justify-center rounded-full w-[42px] h-[42px] lg:hidden"
+          >
             <ExportIcon></ExportIcon>
           </div>
         </div>
@@ -65,14 +69,18 @@ export default function TransTable() {
           />
         </div>
 
-        <div  className="flex gap-[10px]">
-          <button onClick={() => setFilter(!filter)} className="filter border-1  border-gray-300 flex items-center gap-3 cursor-pointer justify-center rounded-[100px]  w-[115px] h-[48px] ">
+        <div className="flex gap-[10px]">
+          <button
+            onClick={() => setFilter(!filter)}
+            className="filter border-1  border-gray-300 flex items-center gap-3 cursor-pointer justify-center rounded-[100px]  w-[115px] h-[48px] "
+          >
             <FilterIcon></FilterIcon>
-            <p className="text-black">Filter
-
-            </p>
+            <p className="text-black">Filter</p>
           </button>
-          <div onClick={()=>setIsDialogOpen(true)} className="export border-1 border-gray-300 flex items-center gap-3 cursor-pointer justify-center rounded-[100px] w-[115px] h-[48px] ">
+          <div
+            onClick={() => setIsDialogOpen(true)}
+            className="export border-1 border-gray-300 flex items-center gap-3 cursor-pointer justify-center rounded-[100px] w-[115px] h-[48px] "
+          >
             <ExportIcon></ExportIcon>
             <p className="text-black">Export</p>
           </div>
@@ -80,57 +88,101 @@ export default function TransTable() {
       </div>
 
       {/* modal */}
-      <div className="modal flex justify-center items-center ">
-     <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-      
-      <DialogContent className="w-[317px] h-[386px] lg:w-[480px] lg:h-[398px]">
+      <div className="modal flex justify-center items-center">
+  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+    <DialogContent className="w-[317px] h-[386px] lg:w-[480px] lg:h-[398px]">
+      {/* Move close button to the left */}
       <style>
-    {`
-      [data-state="open"] > button.absolute {
-        left:20px
-        
-      }
-    `}
-  </style>
-      
-        <DialogHeader className="flex justify-center items-center">
-          <DialogTitle className="font-semibold  text-[32px]">Export Data</DialogTitle>
-          <DialogDescription >
-        export data into document form
-          </DialogDescription>
-        </DialogHeader>
-     <div className="">
-      <p className="text-gray-400 text-left pl-3 pb-2">choose type of document</p>
-     <div className="flex justify-center items-center">
-     <Select defaultValue="pdf">
-          <SelectTrigger className="lg:w-[416px] rounded-[16px] w-[253px] h-[62px]">
-            <SelectValue placeholder="Select format" />
-          </SelectTrigger>
-          <SelectContent >
-            <SelectGroup>
-              <SelectItem value="pdf">PDF</SelectItem>
-              <SelectItem value="csv">CSV</SelectItem>
-              <SelectItem value="xlsx">Excel (.xlsx)</SelectItem>
-            </SelectGroup>
-          </SelectContent>
-        </Select>
-     </div>
-     </div>
-        <DialogFooter className="">
-          
-           <div className="flex justify-center items-center">
-           <Button className="bg-[#31B099] w-[253px] lg:w-[416px] h-[48px] text-white hover:bg-[#31B099] cursor-pointer"  type="button" variant="secondary">
-              Confirm
-            </Button>
-           </div>
-      
-        </DialogFooter>
-      </DialogContent>
-    </Dialog>
-     </div>
+        {`
+          [data-state="open"] > button.absolute {
+            left: 20px;
+          }
+        `}
+      </style>
+
+      {!isExportSuccessful ? (
+        <>
+          {/* Export Data Form */}
+          <DialogHeader className="flex justify-center items-center">
+            <DialogTitle className="font-semibold text-[32px]">
+              Export Data
+            </DialogTitle>
+            <DialogDescription>
+              Export data into document form
+            </DialogDescription>
+          </DialogHeader>
+
+          {/* Document Selection */}
+          <div>
+            <p className="text-gray-400 text-left pl-3 pb-2">
+              Choose type of document
+            </p>
+            <div className="flex justify-center items-center">
+              <Select defaultValue="pdf">
+                <SelectTrigger className="lg:w-[416px] rounded-[16px] w-[253px] h-[62px]">
+                  <SelectValue placeholder="Select format" />
+                </SelectTrigger>
+                <SelectContent>
+                  <SelectGroup>
+                    <SelectItem value="pdf">PDF</SelectItem>
+                    <SelectItem value="csv">CSV</SelectItem>
+                    <SelectItem value="xlsx">Excel (.xlsx)</SelectItem>
+                  </SelectGroup>
+                </SelectContent>
+              </Select>
+            </div>
+          </div>
+
+          {/* Confirm Button */}
+          <DialogFooter>
+            <div className="flex justify-center items-center">
+              <Button
+                onClick={() => setIsExportSuccessful(true)}
+                className="bg-[#31B099] w-[253px] lg:w-[416px] h-[48px] text-white hover:bg-[#31B099] cursor-pointer"
+                type="button"
+                variant="secondary"
+              >
+                Confirm
+              </Button>
+            </div>
+          </DialogFooter>
+        </>
+      ) : (
+        <>
+          {/* Success Message */}
+          <div className="text-center mt-6">
+            <p className="text-lg font-semibold text-green-600">
+              Export Successful ✅
+            </p>
+          </div>
+
+          {/* Done Button to Close Modal */}
+          <DialogFooter>
+            <DialogClose asChild>
+              <div className="flex justify-center items-center">
+                <Button
+                  className="bg-[#31B099] w-[253px] lg:w-[416px] h-[48px] text-white hover:bg-[#31B099] cursor-pointer"
+                  type="button"
+                  onClick={() => setIsExportSuccessful(false)}
+                >
+                  Done
+                </Button>
+              </div>
+            </DialogClose>
+          </DialogFooter>
+        </>
+      )}
+    </DialogContent>
+  </Dialog>
+</div>
+
 
       {/* filter*/}
-      <div className={`filter-icons  ${filter==false&&`hidden`}  flex justify-between items-center gap-5 w-[300px] lg:w-[1150px] my-5 mx-auto overflow-x-auto  `}>
+      <div
+        className={`filter-icons  ${
+          filter == false && `hidden`
+        }  flex justify-between items-center gap-5 w-[300px] lg:w-[1150px] my-5 mx-auto overflow-x-auto  `}
+      >
         <div>
           <Select>
             <SelectTrigger>
