@@ -52,15 +52,7 @@ import {
 } from "@/components/ui/select";
 import ViewIcon from "@/icons/ViewIcon";
 import DeleteIcon from "@/icons/DeleteIcon";
-import {
-  Dialog,
-  DialogClose,
-  DialogContent,
-  DialogDescription,
-  DialogFooter,
-  DialogHeader,
-  DialogTitle,
-} from "@/components/ui/dialog";
+
 import DeleteModal from "./DeleteModal";
 
 // Mock data
@@ -351,7 +343,7 @@ export function DataTableDemo() {
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {
                   return (
-                    <TableHead key={header.id}>
+                    <TableHead  key={header.id}>
                       {header.isPlaceholder
                         ? null
                         : flexRender(
@@ -361,7 +353,7 @@ export function DataTableDemo() {
                     </TableHead>
                   );
                 })}
-                <TableHead>Actions</TableHead>
+                <TableHead >Actions</TableHead>
               </TableRow>
             ))}
           </TableHeader>
@@ -381,7 +373,7 @@ export function DataTableDemo() {
                     </TableCell>
                   ))}
                   <TableCell>
-                    <div className="flex justify-center items-cente gap-3 ">
+                    <div className="flex justify-start items-cente gap-3 ">
                       <button className="cursor-pointer">
                         <ViewIcon></ViewIcon>
                       </button>
