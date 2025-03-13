@@ -10,23 +10,27 @@ interface DeleteModalProps {
 const DeleteModal: React.FC<DeleteModalProps> = ({ deleteModalOpen, setDeleteModalOpen }) => {
   return (
     <Dialog open={deleteModalOpen} onOpenChange={setDeleteModalOpen}>
-      <DialogContent>
+      <DialogContent className='w-[327px] h-[407px] lg:w-[480] lg:h-[348]'>
         <DialogHeader>
-          <DialogTitle>Share link</DialogTitle>
+       <div className='flex justify-center items-center mt-5 flex-col  gap-5'>
+       <img className='w-[73px] h-[73px] lg:w-[93px] lg:h-[93px]' src="/delete.png" alt="" />
+          <DialogTitle>Delete Transaction</DialogTitle>
           <DialogDescription>
-            Anyone who has this link will be able to view this.
+        Are you sure you want to delete this transaction history
           </DialogDescription>
+       </div>
         </DialogHeader>
-        <div className="flex items-center space-x-2">
-          <Button type="submit" size="sm" className="px-3">
-            <span className="sr-only">Copy</span>
-          </Button>
-        </div>
+        
         <DialogFooter className="sm:justify-start">
           <DialogClose asChild>
-            <Button type="button" variant="secondary">
-              Close
+            <div>
+            <Button className='cursor-pointer' type="button" variant="secondary">
+              Cancel
             </Button>
+            <Button className='cursor-pointer' type="button" variant="secondary">
+              Yes
+            </Button>
+            </div>
           </DialogClose>
         </DialogFooter>
       </DialogContent>
