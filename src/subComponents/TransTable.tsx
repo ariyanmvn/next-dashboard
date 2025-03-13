@@ -22,7 +22,6 @@ import {
   DialogFooter,
   DialogHeader,
   DialogTitle,
-  DialogTrigger,
 } from "@/components/ui/dialog";
 import { Button } from "@/components/ui/button";
 
@@ -150,10 +149,18 @@ export default function TransTable() {
       ) : (
         <>
           {/* Success Message */}
-          <div className="text-center mt-6">
-            <p className="text-lg font-semibold text-green-600">
-              Export Successful ✅
-            </p>
+          <style>
+        {`
+          [data-state="open"] > button.absolute {
+            display:none
+          }
+        `}
+      </style>
+          <div className="flex justify-center items-center flex-col gap-4 mt-7">
+            <img src="/success.png" className="lg:w-[90px] lg:h-[90px] w-[73px] h-[73px]" alt="" />
+            <h1 className="lg:text-[32px] text-[24px] font-semibold">Export Successfully</h1>
+            <p className="text-gray-400 text-center">please check your document and open document file</p>
+
           </div>
 
           {/* Done Button to Close Modal */}
