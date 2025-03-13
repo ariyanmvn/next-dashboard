@@ -236,7 +236,7 @@ export const columns: ColumnDef<Payment>[] = [
     header: "Status",
     cell: ({ row }) => (
       <div
-        className={`capitalize  ${
+        className={`capitalize  rounded-sm ${
           row.getValue("status") == "success" &&
           "bg-[#ECF8F0CC] text-[#1C8C6E] w-[96px] h-[33px] flex justify-center items-center font-semibold"
         } ${

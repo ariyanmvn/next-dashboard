@@ -2,6 +2,7 @@ import React from 'react'
 import Navbar from './Navbar'
 import HeroText from './HeroText'
 import HeroTabs from './HeroTabs'
+import ExpandableTable from './TestTable'
 
 export default function Hero() {
   return (
@@ -18,6 +19,7 @@ export default function Hero() {
     <div className='bg-[#F4F4F7] w-full h-[1000px]'>
 
     </div>
+   
     </>
   )
 }
