@@ -13,7 +13,7 @@ import {
   getSortedRowModel,
   useReactTable,
 } from "@tanstack/react-table";
-import {  MoreHorizontal } from "lucide-react";
+import { MoreHorizontal } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
@@ -52,6 +52,16 @@ import {
 } from "@/components/ui/select";
 import ViewIcon from "@/icons/ViewIcon";
 import DeleteIcon from "@/icons/DeleteIcon";
+import {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogTitle,
+} from "@/components/ui/dialog";
+import DeleteModal from "./DeleteModal";
 
 // Mock data
 const data: Payment[] = [
@@ -251,20 +261,7 @@ export const columns: ColumnDef<Payment>[] = [
       </div>
     ),
   },
-  {
-    accessorKey: "action",
-    header: "Action",
-    cell: () => (
-      <div className="flex justify-center items-cente gap-3 ">
-        <button className="cursor-pointer">
-          <ViewIcon></ViewIcon>
-        </button>
-        <button className="cursor-pointer">
-          <DeleteIcon></DeleteIcon>
-        </button>
-      </div>
-    ),
-  },
+
   //   {
   //     accessorKey: "email=",
   //     header: ({ column }) => (
@@ -317,9 +314,13 @@ export function DataTableDemo() {
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
   );
+
   const [columnVisibility, setColumnVisibility] =
     React.useState<VisibilityState>({});
   const [rowSelection, setRowSelection] = React.useState({});
+
+  const[deleteModalOpen,setDeleteModalOpen]=React.useState(false)
+
 
   const table = useReactTable({
     data,
@@ -342,6 +343,7 @@ export function DataTableDemo() {
 
   return (
     <div className="w-full mt-5">
+      {deleteModalOpen&&<DeleteModal deleteModalOpen={deleteModalOpen} setDeleteModalOpen={setDeleteModalOpen}></DeleteModal>}
       <div className="rounded-md border">
         <Table>
           <TableHeader className="bg-[#EDF1F3] text-[#6C7278]">
@@ -359,6 +361,7 @@ export function DataTableDemo() {
                     </TableHead>
                   );
                 })}
+                <TableHead>Actions</TableHead>
               </TableRow>
             ))}
           </TableHeader>
@@ -377,6 +380,16 @@ export function DataTableDemo() {
                       )}
                     </TableCell>
                   ))}
+                  <TableCell>
+                    <div className="flex justify-center items-cente gap-3 ">
+                      <button className="cursor-pointer">
+                        <ViewIcon></ViewIcon>
+                      </button>
+                      <button onClick={()=>setDeleteModalOpen(true)} className="cursor-pointer">
+                        <DeleteIcon></DeleteIcon>
+                      </button>
+                    </div>
+                  </TableCell>
                 </TableRow>
               ))
             ) : (

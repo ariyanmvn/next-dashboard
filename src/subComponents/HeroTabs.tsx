@@ -6,10 +6,10 @@ export default function HeroTabs() {
   return (
     <div className="  p-[25px] text-[#A2A6AA]  ">
       <Tabs defaultValue="tab2" className="w-full relative">
-        <TabsList className="flex space-x-2 ">
-          <TabsTrigger value="tab1">Overview</TabsTrigger>
-          <TabsTrigger value="tab2">Transaction</TabsTrigger>
-          <TabsTrigger className="hidden lg:block" value="tab3">
+        <TabsList className="flex space-x-2  ">
+          <TabsTrigger className="cursor-pointer" value="tab1">Overview</TabsTrigger>
+          <TabsTrigger className="cursor-pointer" value="tab2">Transaction</TabsTrigger>
+          <TabsTrigger className="hidden lg:block cursor-pointer" value="tab3">
             Statistics
           </TabsTrigger>
         </TabsList>
