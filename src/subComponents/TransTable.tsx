@@ -68,7 +68,9 @@ export default function TransTable() {
         <div  className="flex gap-[10px]">
           <button onClick={() => setFilter(!filter)} className="filter border-1  border-gray-300 flex items-center gap-3 cursor-pointer justify-center rounded-[100px]  w-[115px] h-[48px] ">
             <FilterIcon></FilterIcon>
-            <p className="text-black">Filter</p>
+            <p className="text-black">Filter
+
+            </p>
           </button>
           <div onClick={()=>setIsDialogOpen(true)} className="export border-1 border-gray-300 flex items-center gap-3 cursor-pointer justify-center rounded-[100px] w-[115px] h-[48px] ">
             <ExportIcon></ExportIcon>
@@ -78,35 +80,38 @@ export default function TransTable() {
       </div>
 
       {/* modal */}
-     <div className="modal">
+      <div className="modal flex justify-center items-center ">
      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       
-      <DialogContent className="sm:max-w-md">
-        <DialogHeader>
-          <DialogTitle>Share link</DialogTitle>
-          <DialogDescription>
-            Anyone who has this link will be able to view this.
+      <DialogContent className="w-[317px] h-[386px] lg:w-[480px] lg:h-[398px]">
+        <DialogHeader className="flex justify-center items-center">
+          <DialogTitle className="font-semibold  text-[32px]">Export Data</DialogTitle>
+          <DialogDescription >
+        export data into document form
           </DialogDescription>
         </DialogHeader>
-        <div className="flex items-center space-x-2">
-          <div className="grid flex-1 gap-2">
-            
-            <Input
-              id="link"
-              defaultValue="https://ui.shadcn.com/docs/installation"
-              readOnly
-            />
-          </div>
-          <Button type="submit" size="sm" className="px-3">
-            <span className="sr-only">Copy</span>
-            
-          </Button>
-        </div>
+     <div className="flex justify-center items-start flex-col gap-3">
+      <p className="text-gray-400 text-left">choose type of document</p>
+     <Select defaultValue="pdf">
+          <SelectTrigger className="lg:w-[416px] rounded-[16px] w-[253px] h-[62px]">
+            <SelectValue placeholder="Select format" />
+          </SelectTrigger>
+          <SelectContent >
+            <SelectGroup>
+              <SelectItem value="pdf">PDF</SelectItem>
+              <SelectItem value="csv">CSV</SelectItem>
+              <SelectItem value="xlsx">Excel (.xlsx)</SelectItem>
+            </SelectGroup>
+          </SelectContent>
+        </Select>
+     </div>
         <DialogFooter className="sm:justify-start">
-          <DialogClose asChild>
-            <Button type="button" variant="secondary">
-              Close
+          <DialogClose  asChild>
+           <div className="flex justify-center items-center">
+           <Button className="bg-[#31B099] w-[253px] lg:w-[416px] h-[48px] text-white hover:bg-[#31B099] cursor-pointer"  type="button" variant="secondary">
+              Confirm
             </Button>
+           </div>
           </DialogClose>
         </DialogFooter>
       </DialogContent>
