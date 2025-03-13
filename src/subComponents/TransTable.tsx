@@ -88,112 +88,118 @@ export default function TransTable() {
 
       {/* modal */}
       <div className="modal flex justify-center items-center">
-  <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
-    <DialogContent className="w-[317px] h-[386px] lg:w-[480px] lg:h-[398px]">
-      {/* Move close button to the left */}
-      <style>
-        {`
+        <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
+          <DialogContent className="w-[317px] h-[386px] lg:w-[480px] lg:h-[398px]">
+            {/* Move close button to the left */}
+            <style>
+              {`
           [data-state="open"] > button.absolute {
             left: 20px;
           }
         `}
-      </style>
+            </style>
 
-      {!isExportSuccessful ? (
-        <>
-          {/* Export Data Form */}
-          <DialogHeader className="flex justify-center items-center">
-            <DialogTitle className="font-semibold text-[32px]">
-              Export Data
-            </DialogTitle>
-            <DialogDescription>
-              Export data into document form
-            </DialogDescription>
-          </DialogHeader>
+            {!isExportSuccessful ? (
+              <>
+                {/* Export Data Form */}
+                <DialogHeader className="flex justify-center items-center">
+                  <DialogTitle className="font-semibold text-[32px]">
+                    Export Data
+                  </DialogTitle>
+                  <DialogDescription>
+                    Export data into document form
+                  </DialogDescription>
+                </DialogHeader>
 
-          {/* Document Selection */}
-          <div>
-            <p className="text-gray-400 text-left pl-3 pb-2">
-              Choose type of document
-            </p>
-            <div className="flex justify-center items-center">
-              <Select defaultValue="pdf">
-                <SelectTrigger className="lg:w-[416px] rounded-[16px] w-[253px] h-[62px]">
-                  <SelectValue placeholder="Select format" />
-                </SelectTrigger>
-                <SelectContent>
-                  <SelectGroup>
-                    <SelectItem value="pdf">PDF</SelectItem>
-                    <SelectItem value="csv">CSV</SelectItem>
-                    <SelectItem value="xlsx">Excel (.xlsx)</SelectItem>
-                  </SelectGroup>
-                </SelectContent>
-              </Select>
-            </div>
-          </div>
+                {/* Document Selection */}
+                <div>
+                  <p className="text-gray-400 text-left pl-3 pb-2">
+                    Choose type of document
+                  </p>
+                  <div className="flex justify-center items-center">
+                    <Select defaultValue="pdf">
+                      <SelectTrigger className="lg:w-[416px] rounded-[16px] w-[253px] h-[62px]">
+                        <SelectValue placeholder="Select format" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectGroup>
+                          <SelectItem value="pdf">PDF</SelectItem>
+                          <SelectItem value="csv">CSV</SelectItem>
+                          <SelectItem value="xlsx">Excel (.xlsx)</SelectItem>
+                        </SelectGroup>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                </div>
 
-          {/* Confirm Button */}
-          <DialogFooter>
-            <div className="flex justify-center items-center">
-              <Button
-                onClick={() => setIsExportSuccessful(true)}
-                className="bg-[#31B099] w-[253px] lg:w-[416px] h-[48px] text-white hover:bg-[#31B099] cursor-pointer"
-                type="button"
-                variant="secondary"
-              >
-                Confirm
-              </Button>
-            </div>
-          </DialogFooter>
-        </>
-      ) : (
-        <>
-          {/* Success Message */}
-          <style>
-        {`
+                {/* Confirm Button */}
+                <DialogFooter>
+                  <div className="flex justify-center items-center">
+                    <Button
+                      onClick={() => setIsExportSuccessful(true)}
+                      className="bg-[#31B099] w-[253px] lg:w-[416px] h-[48px] text-white hover:bg-[#31B099] cursor-pointer"
+                      type="button"
+                      variant="secondary"
+                    >
+                      Confirm
+                    </Button>
+                  </div>
+                </DialogFooter>
+              </>
+            ) : (
+              <>
+                {/* Success Message */}
+                <style>
+                  {`
           [data-state="open"] > button.absolute {
             display:none
           }
         `}
-      </style>
-          <div className="flex justify-center items-center flex-col gap-4 mt-7">
-            <img src="/success.png" className="lg:w-[90px] lg:h-[90px] w-[73px] h-[73px]" alt="" />
-            <h1 className="lg:text-[32px] text-[24px] font-semibold">Export Successfully</h1>
-            <p className="text-gray-400 text-center">please check your document and open document file</p>
+                </style>
+                <div className="flex justify-center items-center flex-col gap-4 mt-7">
+                  <img
+                    src="/success.png"
+                    className="lg:w-[90px] lg:h-[90px] w-[73px] h-[73px]"
+                    alt=""
+                  />
+                  <h1 className="lg:text-[32px] text-[24px] font-semibold">
+                    Export Successfully
+                  </h1>
+                  <p className="text-gray-400 text-center">
+                    please check your document and open document file
+                  </p>
+                </div>
 
-          </div>
-
-          {/* Done Button to Close Modal */}
-          <DialogFooter>
-            <DialogClose asChild>
-              <div className="flex justify-center items-center">
-                <Button
-                  className="bg-[#31B099] w-[253px] lg:w-[416px] h-[48px] text-white hover:bg-[#31B099] cursor-pointer"
-                  type="button"
-                  onClick={() => setIsExportSuccessful(false)}
-                >
-                  Done
-                </Button>
-              </div>
-            </DialogClose>
-          </DialogFooter>
-        </>
-      )}
-    </DialogContent>
-  </Dialog>
-</div>
-
+                {/* Done Button to Close Modal */}
+                <DialogFooter>
+                  <DialogClose asChild>
+                    <div className="flex justify-center items-center">
+                      <Button
+                        className="bg-[#31B099] w-[253px] lg:w-[416px] h-[48px] text-white hover:bg-[#31B099] cursor-pointer"
+                        type="button"
+                        onClick={() => setIsExportSuccessful(false)}
+                      >
+                        Done
+                      </Button>
+                    </div>
+                  </DialogClose>
+                </DialogFooter>
+              </>
+            )}
+          </DialogContent>
+        </Dialog>
+      </div>
 
       {/* filter*/}
       <div
         className={`filter-icons  ${
           filter == false && `hidden`
-        }  flex justify-between items-center gap-5 w-[300px] lg:w-[1150px] my-5 mx-auto overflow-x-auto  `}
+        }  flex justify-between items-center gap-[24px] w-[300px] lg:w-[1150px] 2xl:w-[1250px] my-5 mx-auto overflow-x-auto  `}
       >
         <div>
           <Select>
-            <SelectTrigger>
-              <SelectValue placeholder="Rows per page" />
+            <SelectTrigger className="w-[270px] h-[48px] rounded-[100px]">
+              <SelectValue placeholder="Transaction Type" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -206,8 +212,8 @@ export default function TransTable() {
         </div>
         <div>
           <Select>
-            <SelectTrigger>
-              <SelectValue placeholder="Rows per page" />
+            <SelectTrigger className="w-[300px] h-[48px] rounded-[100px]">
+              <SelectValue placeholder="Business Type" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -220,8 +226,8 @@ export default function TransTable() {
         </div>
         <div>
           <Select>
-            <SelectTrigger>
-              <SelectValue placeholder="Rows per page" />
+            <SelectTrigger className="w-[300px] h-[48px] rounded-[100px]"> 
+              <SelectValue placeholder="Date Range" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
@@ -234,8 +240,8 @@ export default function TransTable() {
         </div>
         <div>
           <Select>
-            <SelectTrigger>
-              <SelectValue placeholder="Rows per page" />
+            <SelectTrigger className="w-[300px] h-[48px] rounded-[100px]">
+              <SelectValue placeholder="Status" />
             </SelectTrigger>
             <SelectContent>
               <SelectGroup>
