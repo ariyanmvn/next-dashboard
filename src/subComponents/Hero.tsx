@@ -2,7 +2,6 @@ import React from 'react'
 import Navbar from './Navbar'
 import HeroText from './HeroText'
 import HeroTabs from './HeroTabs'
-import ExpandableTable from './TestTable'
 
 export default function Hero() {
   return (
