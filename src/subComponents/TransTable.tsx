@@ -84,14 +84,24 @@ export default function TransTable() {
      <Dialog open={isDialogOpen} onOpenChange={setIsDialogOpen}>
       
       <DialogContent className="w-[317px] h-[386px] lg:w-[480px] lg:h-[398px]">
+      <style>
+    {`
+      [data-state="open"] > button.absolute {
+        left:20px
+        
+      }
+    `}
+  </style>
+      
         <DialogHeader className="flex justify-center items-center">
           <DialogTitle className="font-semibold  text-[32px]">Export Data</DialogTitle>
           <DialogDescription >
         export data into document form
           </DialogDescription>
         </DialogHeader>
-     <div className="flex justify-center items-start flex-col gap-3">
-      <p className="text-gray-400 text-left">choose type of document</p>
+     <div className="">
+      <p className="text-gray-400 text-left pl-3 pb-2">choose type of document</p>
+     <div className="flex justify-center items-center">
      <Select defaultValue="pdf">
           <SelectTrigger className="lg:w-[416px] rounded-[16px] w-[253px] h-[62px]">
             <SelectValue placeholder="Select format" />
@@ -105,14 +115,15 @@ export default function TransTable() {
           </SelectContent>
         </Select>
      </div>
-        <DialogFooter className="sm:justify-start">
-          <DialogClose  asChild>
+     </div>
+        <DialogFooter className="">
+          
            <div className="flex justify-center items-center">
            <Button className="bg-[#31B099] w-[253px] lg:w-[416px] h-[48px] text-white hover:bg-[#31B099] cursor-pointer"  type="button" variant="secondary">
               Confirm
             </Button>
            </div>
-          </DialogClose>
+      
         </DialogFooter>
       </DialogContent>
     </Dialog>
